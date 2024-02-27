@@ -54,18 +54,44 @@ class MyTextKecil extends StatelessWidget {
       data,
       style: const TextStyle(
         fontSize: 14.0,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w300,
       ),
     );
   }
 }
 
 class MyTextFormField extends StatelessWidget {
-  const MyTextFormField({super.key});
+  final Function(String)? onChanged;
+  final bool obscureText;
+  final TextInputType keyboardType;
+  final int maxLength;
+  final IconData? icon;
+  final String labelText, helperText;
+
+  const MyTextFormField({
+    super.key,
+    required this.onChanged,
+    this.obscureText = false,
+    required this.keyboardType,
+    required this.maxLength,
+    required this.icon,
+    required this.labelText,
+    required this.helperText,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField();
+    return TextFormField(
+      onChanged: onChanged,
+      obscureText: obscureText,
+      keyboardType: keyboardType,
+      maxLength: maxLength,
+      decoration: InputDecoration(
+        icon: Icon(icon),
+        labelText: labelText,
+        helperText: helperText,
+      ),
+    );
   }
 }
 
