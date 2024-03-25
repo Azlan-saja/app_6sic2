@@ -42,7 +42,7 @@ class MyLogin extends StatelessWidget {
               children: [
                 MyElevatedButtonSubmit(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const MyDashboard(),
